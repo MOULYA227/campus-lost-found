@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Report a lost or found item on campus. Fill in details and an optional photo to help match items.">
+  <title>Report Item — CampusFind</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo"><span>🎒</span> CampusFind</a>
+      <div class="nav__links">
+        <a href="index.html">Home</a>
+        <a href="report.html">Report Item</a>
+        <a href="reports.html">Browse</a>
+        <a href="match.html">Matches</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Report an Item</h1>
+      <p>Fill in as many details as you can — better descriptions lead to faster matches.</p>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="form-card">
+
+      <!-- Lost / Found type toggle -->
+      <div class="type-toggle" role="group" aria-label="Item type">
+        <input type="radio" name="type-select" id="type-lost"  value="lost"  checked>
+        <label for="type-lost"  class="toggle-lost">🔍 I Lost Something</label>
+        <input type="radio" name="type-select" id="type-found" value="found">
+        <label for="type-found" class="toggle-found">✅ I Found Something</label>
+      </div>
+
+      <form id="report-form" enctype="multipart/form-data" novalidate>
+        <!-- Hidden type field updated by toggle -->
+        <input type="hidden" id="type-field" name="type" value="lost">
+
+        <div class="form-row form-row-2">
+          <div class="form-group">
+            <label for="item_name">Item Name *</label>
+            <input type="text" id="item_name" name="item_name"
+                   placeholder="e.g. Blue Water Bottle" required maxlength="120">
+          </div>
+          <div class="form-group">
+            <label for="category">Category *</label>
+            <select id="category" name="category" required>
+              <option value="" disabled selected>Select a category…</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Accessories">Accessories</option>
+          <option value="Books/Notes">Books/Notes</option>
+          <option value="ID/Cards">ID/Cards</option>
+          <option value="Keys">Keys</option>
+          <option value="Glasses">Glasses</option>
+          <option value="Stationery">Stationery</option>
+          <option value="Sports">Sports</option>
+          <option value="Food/Drink">Food/Drink</option>
+          <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea id="description" name="description"
+              placeholder="Colour, brand, markings, any distinctive features…"></textarea>
+          </div>
+        </div>
+
+        <div class="form-row form-row-2">
+          <div class="form-group">
+            <label for="location">Location *</label>
+            <input type="text" id="location" name="location"
+                   placeholder="e.g. Main Library, Block B" required maxlength="200">
+          </div>
+          <div class="form-group">
+            <label for="date_time">Date &amp; Time *</label>
+            <input type="datetime-local" id="date_time" name="date_time" required>
+          </div>
+        </div>
+
+        <!-- Image upload -->
+        <div class="form-group" style="margin-bottom:1.5rem">
+          <label>Photo (optional)</label>
+          <div class="upload-area" id="upload-area" role="button" aria-label="Upload photo" tabindex="0">
+            <div class="upload-hint">
+              <div class="upload-icon">📷</div>
+              <p style="margin:0;font-size:.9rem;color:var(--clr-muted)">
+                Click or drag &amp; drop an image here<br>
+                <span style="font-size:.8rem;opacity:.7">PNG, JPG, WEBP — max 10 MB</span>
+              </p>
+            </div>
+            <img class="upload-preview" id="upload-preview" alt="Preview">
+          </div>
+          <input type="file" id="image" name="image" accept="image/*" class="sr-only">
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submit-btn" style="width:100%;justify-content:center;font-size:1rem;padding:.9rem">
+          <div class="spinner"></div>
+          <span class="btn-text">Submit Report</span>
+        </button>
+      </form>
+    </div>
+  </main>
+
+
+  <footer>
+    <strong>CampusFind</strong> — Smart Campus Lost &amp; Found &nbsp;|&nbsp;
+    Built with ❤️ for RubiX 2026 · NISB Computer Society
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    // Sync the hidden "type" field with the radio toggle
+    document.querySelectorAll('input[name="type-select"]').forEach(radio => {
+      radio.addEventListener("change", () => {
+        document.getElementById("type-field").value = radio.value;
+      });
+    });
+
+    // Pre-select type from URL param: report.html?type=found
+    const urlType = new URLSearchParams(window.location.search).get("type");
+    if (urlType === "found") {
+      document.getElementById("type-found").checked = true;
+      document.getElementById("type-field").value = "found";
+    }
+
+    // Default date/time to right now
+    const now = new Date();
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    document.getElementById("date_time").value = now.toISOString().slice(0, 16);
+  </script>
+</body>
+</html>

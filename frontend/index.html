@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Smart Campus Lost and Found — report lost items, browse found items, and get AI-powered match suggestions on your campus.">
+  <title>CampusFind — Smart Campus Lost &amp; Found</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo"><span>🎒</span> CampusFind</a>
+      <div class="nav__links">
+        <a href="index.html">Home</a>
+        <a href="report.html">Report Item</a>
+        <a href="reports.html">Browse</a>
+        <a href="match.html">Matches</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" aria-label="Hero">
+    <div class="hero__content">
+      <h1>Lost Something on Campus?<br>We'll Help You Find It.</h1>
+      <p>CampusFind intelligently matches lost and found reports using location, category, and description similarity — so you get your stuff back faster.</p>
+      <div class="hero__cta">
+        <a href="report.html?type=lost"  class="btn btn-primary" id="hero-lost-btn">🔍 Report Lost Item</a>
+        <a href="report.html?type=found" class="btn btn-outline"  id="hero-found-btn">✅ Report Found Item</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Live stats -->
+  <div class="stats-strip" id="stats-container" aria-live="polite">
+    <div class="stat-item">
+      <div class="stat-item__num skeleton" style="width:60px;height:36px;border-radius:8px"></div>
+      <div class="stat-item__lbl">Loading…</div>
+    </div>
+  </div>
+
+  <!-- How it works -->
+  <section class="how-section" aria-labelledby="how-heading">
+    <div class="container">
+      <h2 id="how-heading">How It Works</h2>
+      <p class="sub">Four simple steps from report to reunion.</p>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-card__icon">📝</div>
+          <h3>Submit a Report</h3>
+          <p>Fill in the item name, category, location, time, and an optional photo. Takes under a minute.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-card__icon">🗄️</div>
+          <h3>Stored Securely</h3>
+          <p>Your report is saved instantly to our campus database and visible to everyone browsing.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-card__icon">🔗</div>
+          <h3>Smart Matching</h3>
+          <p>Our algorithm compares category, location, description, and timing to suggest possible matches.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-card__icon">🎉</div>
+          <h3>Verify &amp; Reunite</h3>
+          <p>Once you confirm a match, both reports are closed and the item is on its way home.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick actions -->
+  <section style="padding:3rem 1.5rem;background:var(--clr-card);border-top:1px solid var(--clr-border)">
+    <div class="container text-center">
+      <h2 style="margin-bottom:.5rem">Ready to get started?</h2>
+      <p style="margin-bottom:1.5rem">Browse existing reports or add yours right now.</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+        <a href="reports.html" class="btn btn-secondary" id="browse-btn">📋 Browse All Reports</a>
+        <a href="match.html"   class="btn btn-primary"   id="matches-btn">🤝 View Match Suggestions</a>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <strong>CampusFind</strong> — Smart Campus Lost &amp; Found &nbsp;|&nbsp;
+    Built with ❤️ for RubiX 2026 · NISB Computer Society
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

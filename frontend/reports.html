@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Browse all lost and found reports submitted on campus. Filter by type and category.">
+  <title>Browse Reports — CampusFind</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo"><span>🎒</span> CampusFind</a>
+      <div class="nav__links">
+        <a href="index.html">Home</a>
+        <a href="report.html">Report Item</a>
+        <a href="reports.html">Browse</a>
+        <a href="match.html">Matches</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Browse Reports</h1>
+      <p>All submitted lost and found items — filter by type or category below.</p>
+    </div>
+  </div>
+
+  <main class="container">
+
+    <!-- Filter bar -->
+    <div class="filter-bar" role="toolbar" aria-label="Report filters">
+      <label>Filter:</label>
+
+      <!-- Type chips -->
+      <button class="filter-chip active" data-group="type" data-value="" id="chip-all">All</button>
+      <button class="filter-chip lost"   data-group="type" data-value="lost"  id="chip-lost">🔍 Lost</button>
+      <button class="filter-chip found"  data-group="type" data-value="found" id="chip-found">✅ Found</button>
+
+      <!-- Category select -->
+      <label for="filter-category" style="margin-left:auto">Category:</label>
+      <select id="filter-category">
+        <option value="">All Categories</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Clothing">Clothing</option>
+          <option value="Accessories">Accessories</option>
+          <option value="Books/Notes">Books/Notes</option>
+          <option value="ID/Cards">ID/Cards</option>
+          <option value="Keys">Keys</option>
+          <option value="Glasses">Glasses</option>
+          <option value="Stationery">Stationery</option>
+          <option value="Sports">Sports</option>
+          <option value="Food/Drink">Food/Drink</option>
+          <option value="Other">Other</option>
+      </select>
+
+      <a href="report.html" class="btn btn-primary" style="padding:.5rem 1rem;font-size:.88rem;margin-left:.5rem" id="add-report-btn">
+        + Add Report
+      </a>
+    </div>
+
+    <!-- Cards grid -->
+    <div class="grid-2" id="reports-grid" aria-live="polite">
+      <!-- Populated by script.js -->
+    </div>
+
+  </main>
+
+
+  <footer>
+    <strong>CampusFind</strong> — Smart Campus Lost &amp; Found &nbsp;|&nbsp;
+    Built with ❤️ for RubiX 2026 · NISB Computer Society
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    // Wire up the "All" chip to deactivate type chips
+    document.getElementById("chip-all").addEventListener("click", function() {
+      document.querySelectorAll("[data-group='type']").forEach(c => c.classList.remove("active"));
+      this.classList.add("active");
+    });
+    document.getElementById("chip-lost").addEventListener("click", function() {
+      document.getElementById("chip-all").classList.remove("active");
+    });
+    document.getElementById("chip-found").addEventListener("click", function() {
+      document.getElementById("chip-all").classList.remove("active");
+    });
+  </script>
+</body>
+</html>

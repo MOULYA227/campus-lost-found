@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detailed match view showing score breakdown and side-by-side comparison of a lost and found item.">
+  <title>Match Detail — CampusFind</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo"><span>🎒</span> CampusFind</a>
+      <div class="nav__links">
+        <a href="index.html">Home</a>
+        <a href="report.html">Report Item</a>
+        <a href="reports.html">Browse</a>
+        <a href="match.html">Matches</a>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Match Detail</h1>
+      <p>See exactly why these two items were suggested as a match, then verify or reject.</p>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="match-detail" id="match-detail-container" aria-live="polite">
+      <!-- Skeleton while loading -->
+      <div class="score-meter">
+        <div class="skeleton" style="width:120px;height:80px;border-radius:12px;margin:0 auto 1rem"></div>
+        <div class="skeleton" style="width:100%;height:14px;border-radius:8px;margin-bottom:.5rem"></div>
+        <div class="skeleton" style="width:80%;height:14px;border-radius:8px;margin:0 auto"></div>
+      </div>
+      <div class="comparison-grid">
+        <div class="comparison-box skeleton" style="height:420px"></div>
+        <div class="comparison-vs">VS</div>
+        <div class="comparison-box skeleton" style="height:420px"></div>
+      </div>
+    </div>
+  </main>
+
+
+  <footer>
+    <strong>CampusFind</strong> — Smart Campus Lost &amp; Found &nbsp;|&nbsp;
+    Built with ❤️ for RubiX 2026 · NISB Computer Society
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
