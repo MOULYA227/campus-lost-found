@@ -1,4 +1,3 @@
-# Python dependencies for the Smart Campus Lost & Found backend.
-# Install with:  pip install -r requirements.txt
 flask==3.0.3
 werkzeug==3.0.3
+gunicorn==23.0.0
