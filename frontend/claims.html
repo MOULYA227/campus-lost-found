@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Manage your item claims on CampusFind — view pending claims and verify item handover.">
+  <title>My Claims — CampusFind</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo"><span>🎒</span> CampusFind</a>
+      <div class="nav__links">
+        <a href="index.html">Home</a>
+        <a href="report.html">Report Item</a>
+        <a href="reports.html">Browse</a>
+        <a href="match.html">Matches</a>
+        <div class="nav__auth" id="nav-auth"></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>My Claims</h1>
+      <p>Track items you've claimed and verify handover with the finder's code.</p>
+    </div>
+  </div>
+
+  <main class="container">
+    <!-- Login wall -->
+    <div id="claims-login-wall" style="display:none">
+      <div class="empty-state">
+        <div class="empty-state__icon">🔐</div>
+        <h3>Login Required</h3>
+        <p>You need to be logged in to view your claims.</p>
+        <a href="login.html" class="btn btn-primary" style="margin-top:1rem">Log In</a>
+      </div>
+    </div>
+
+    <!-- Claims content (shown when logged in) -->
+    <div id="claims-content" style="display:none">
+
+      <!-- Section: As Claimant -->
+      <section class="claims-section" aria-labelledby="claimant-heading">
+        <h2 id="claimant-heading">📦 Items I'm Claiming</h2>
+        <p class="claims-section__sub">Items you have requested to claim from finders.</p>
+        <div id="claimant-list" aria-live="polite">
+          <!-- Populated by script.js -->
+        </div>
+      </section>
+
+      <!-- Section: As Finder -->
+      <section class="claims-section" style="margin-top:2.5rem" aria-labelledby="finder-heading">
+        <h2 id="finder-heading">🔍 Items I Found (Incoming Claims)</h2>
+        <p class="claims-section__sub">People who have claimed items you reported as found. Enter the code they give you during handover.</p>
+        <div id="finder-list" aria-live="polite">
+          <!-- Populated by script.js -->
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <strong>CampusFind</strong> — Smart Campus Lost &amp; Found &nbsp;|&nbsp;
+    Built with ❤️ for RubiX 2026 · NISB Computer Society
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

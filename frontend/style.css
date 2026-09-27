@@ -700,3 +700,243 @@ footer strong { color: rgba(255,255,255,.85); }
   .match-pair { flex-direction: column; }
   .action-row { flex-direction: column; }
 }
+
+/* ==========================================================================
+   AUTH — Nav bar user area
+   ========================================================================== */
+.nav__auth {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-left: .25rem;
+}
+.nav__user {
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--clr-primary);
+  white-space: nowrap;
+}
+.nav__logout-btn {
+  padding: .35rem .8rem;
+  font-size: .8rem;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--clr-border);
+  background: transparent;
+  color: var(--clr-muted);
+  transition: background var(--transition), color var(--transition);
+}
+.nav__logout-btn:hover { background: var(--clr-primary); color: #fff; border-color: var(--clr-primary); }
+
+/* ==========================================================================
+   AUTH — Login / Register card
+   ========================================================================== */
+.auth-card {
+  max-width: 440px;
+  margin: 2.5rem auto 4rem;
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  box-shadow: var(--shadow-md);
+}
+.auth-submit-btn {
+  width: 100%;
+  justify-content: center;
+  font-size: 1rem;
+  padding: .9rem;
+  margin-top: .5rem;
+}
+.auth-switch {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: .9rem;
+  color: var(--clr-muted);
+}
+.auth-switch a { color: var(--clr-primary); font-weight: 600; text-decoration: none; }
+.auth-switch a:hover { text-decoration: underline; }
+
+/* ==========================================================================
+   CLAIMS — Page sections
+   ========================================================================== */
+.claims-section h2 {
+  font-size: 1.3rem;
+  margin-bottom: .25rem;
+}
+.claims-section__sub {
+  color: var(--clr-muted);
+  font-size: .9rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Claim card */
+.claim-card {
+  background: var(--clr-card);
+  border: 1px solid var(--clr-border);
+  border-radius: var(--radius-md);
+  padding: 1.25rem 1.5rem;
+  margin-bottom: 1rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.claim-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.claim-card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.claim-card__item {
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: var(--clr-heading);
+}
+.claim-card__meta {
+  font-size: .83rem;
+  color: var(--clr-muted);
+  margin-top: .2rem;
+}
+.claim-card__sub {
+  font-size: .8rem;
+  color: var(--clr-muted);
+  margin-top: .5rem;
+}
+
+/* Status badges for claims */
+.claim-status-badge {
+  display: inline-block;
+  padding: .28rem .75rem;
+  border-radius: 999px;
+  font-size: .78rem;
+  font-weight: 700;
+  white-space: nowrap;
+  letter-spacing: .03em;
+}
+.claim-status--pending  { background: #fff8e1; color: #b45309; border: 1px solid #fcd34d; }
+.claim-status--verified { background: #d1fae5; color: #065f46; border: 1px solid #6ee7b7; }
+.claim-status--returned { background: #ede9fe; color: #4c1d95; border: 1px solid #c4b5fd; }
+
+/* Verify code input */
+.verify-code-input {
+  padding: .6rem .9rem;
+  border: 1.5px solid var(--clr-border);
+  border-radius: var(--radius-sm);
+  background: var(--clr-bg);
+  color: var(--clr-heading);
+  transition: border-color var(--transition);
+}
+.verify-code-input:focus {
+  outline: none;
+  border-color: var(--clr-primary);
+  box-shadow: 0 0 0 3px rgba(26,95,122,.15);
+}
+
+/* ==========================================================================
+   CLAIM CODE REVEAL BOX (shown once on match detail after claiming)
+   ========================================================================== */
+.claim-code-box {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  border: 1px solid #7c3aed;
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  color: #e2e8f0;
+  text-align: center;
+  box-shadow: 0 0 24px rgba(124,58,237,.3);
+}
+.claim-code-box__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: .3rem;
+  color: #a78bfa;
+}
+.claim-code-reveal {
+  font-family: 'Courier New', monospace;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: .35em;
+  color: #7c3aed;
+  background: #0f0f23;
+  border: 2px dashed #7c3aed;
+  border-radius: var(--radius-sm);
+  padding: .75rem 1.5rem;
+  display: inline-block;
+  margin: .4rem 0;
+  user-select: all;
+  cursor: copy;
+}
+
+/* ==========================================================================
+   CONTACT BUTTON + CONTACT CARD
+   ========================================================================== */
+
+.btn-contact {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  padding: .45rem 1rem;
+  font-size: .85rem;
+  font-weight: 600;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid #7c3aed;
+  background: transparent;
+  color: #7c3aed;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+}
+.btn-contact:hover { background: #7c3aed; color: #fff; transform: translateY(-1px); }
+.btn-contact:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+.claim-contact-row { margin-top: .75rem; }
+
+.contact-card {
+  background: linear-gradient(135deg, #1e1b4b, #2e1065);
+  border: 1px solid #7c3aed;
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1.25rem;
+  margin-top: .25rem;
+  box-shadow: 0 0 18px rgba(124,58,237,.2);
+}
+.contact-card__header {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: .65rem;
+  flex-wrap: wrap;
+}
+.contact-card__icon { font-size: 1.15rem; }
+.contact-card__label { font-weight: 700; font-size: .9rem; color: #a78bfa; }
+.contact-card__privacy {
+  margin-left: auto;
+  font-size: .72rem;
+  color: #6d6aff;
+  background: rgba(109,106,255,.15);
+  border: 1px solid rgba(109,106,255,.3);
+  padding: .15rem .5rem;
+  border-radius: 999px;
+  letter-spacing: .03em;
+}
+.contact-card__name { font-size: 1.05rem; font-weight: 700; color: #e9d5ff; margin-bottom: .2rem; }
+.contact-card__info {
+  font-size: .95rem;
+  color: #c4b5fd;
+  word-break: break-all;
+  margin-bottom: .5rem;
+  font-family: 'Courier New', monospace;
+  letter-spacing: .02em;
+}
+.contact-card__item-tag {
+  font-size: .78rem;
+  color: #7c3aed;
+  background: rgba(124,58,237,.15);
+  display: inline-block;
+  padding: .2rem .6rem;
+  border-radius: 999px;
+  border: 1px solid rgba(124,58,237,.3);
+}
+
+.field-hint {
+  font-size: .78rem;
+  color: var(--clr-muted);
+  margin: .35rem 0 0;
+  line-height: 1.4;
+}

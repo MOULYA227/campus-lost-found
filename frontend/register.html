@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Create a free CampusFind account to report lost or found items and claim your belongings.">
+  <title>Register — CampusFind</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo"><span>🎒</span> CampusFind</a>
+      <div class="nav__links">
+        <a href="index.html">Home</a>
+        <a href="report.html">Report Item</a>
+        <a href="reports.html">Browse</a>
+        <a href="match.html">Matches</a>
+        <div class="nav__auth" id="nav-auth"></div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="page-header">
+    <div class="container">
+      <h1>Create Account</h1>
+      <p>Join CampusFind to report items and manage your claims.</p>
+    </div>
+  </div>
+
+  <main class="container">
+    <div class="auth-card">
+      <form id="register-form" novalidate>
+
+        <div class="form-group">
+          <label for="reg-name">Full Name *</label>
+          <input type="text" id="reg-name" name="name"
+                 placeholder="e.g. Arjun Sharma" required maxlength="100"
+                 autocomplete="name">
+        </div>
+
+        <div class="form-group">
+          <label for="reg-email">Email Address *</label>
+          <input type="email" id="reg-email" name="email"
+                 placeholder="your@campus.edu" required
+                 autocomplete="email">
+        </div>
+
+        <div class="form-group">
+          <label for="reg-password">Password *</label>
+          <input type="password" id="reg-password" name="password"
+                 placeholder="At least 6 characters" required minlength="6"
+                 autocomplete="new-password">
+        </div>
+
+        <div class="form-group">
+          <label for="reg-confirm">Confirm Password *</label>
+          <input type="password" id="reg-confirm" name="confirm"
+                 placeholder="Repeat your password" required
+                 autocomplete="new-password">
+        </div>
+
+        <div class="form-group">
+          <label for="reg-contact">Contact Info <span style="font-weight:400;color:var(--clr-muted)">(optional)</span></label>
+          <input type="text" id="reg-contact" name="contact_info"
+                 placeholder="Phone, WhatsApp, Instagram — shared only with claim partners"
+                 maxlength="200" autocomplete="off">
+          <p class="field-hint">This is shown <strong>only</strong> to the other person in a confirmed claim. Never displayed publicly.</p>
+        </div>
+
+        <button type="submit" class="btn btn-primary auth-submit-btn" id="reg-submit-btn">
+          <div class="spinner"></div>
+          <span class="btn-text">Create Account</span>
+        </button>
+      </form>
+
+      <p class="auth-switch">
+        Already have an account? <a href="login.html">Log in →</a>
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <strong>CampusFind</strong> — Smart Campus Lost &amp; Found &nbsp;|&nbsp;
+    Built with ❤️ for RubiX 2026 · NISB Computer Society
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
